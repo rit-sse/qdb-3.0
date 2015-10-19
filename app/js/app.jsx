@@ -1,3 +1,5 @@
+'use strict';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -6,8 +8,8 @@ import Quote from './quote';
 
 class App extends React.Component {
     render() {
-        return(
-            <div>    
+      return(
+            <div>
                 <Navbar />
                 <div className='container' id='qdb-content'>
                     <Quote
@@ -22,7 +24,4 @@ class App extends React.Component {
     }
 }
 
-ReactDOM.render(
-        (<App />),
-        document.getElementById('app')
-);
+ReactDOM.render( <App />, document.getElementById('app'));
