@@ -15,8 +15,12 @@ class App extends React.Component {
         return(
             <div>    
                 <Navbar />
-                <div className="container" id="qdb-content">
-                    <Quote qdbid="1129" quoteText="Hello World with React!"/>
+                <div className='container' id='qdb-content'>
+                    <Quote
+                        qdbid='1129'
+                        quoteText='Hello World with React!'
+                        smallText='Hello World subtext!'
+                    />
                 </div>
             </div>
         );
