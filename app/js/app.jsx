@@ -8,6 +8,12 @@ import ReactRouter, {Route, IndexRoute, Router} from 'react-router';
 
 const history = useBasename(createHistory)({baseName: '/qdb'});
 
+class App extends React.Component {
+    render() {
+        return(<Navbar />);
+    }
+}
+
 ReactDOM.render(
   <Router history={history} >
     <Route path='/qdb' component={QDB} />
