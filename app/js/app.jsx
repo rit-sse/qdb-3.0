@@ -1,5 +1,6 @@
-import {createHistory, useBasename} from 'history';
+'use strict';
 
+import {createHistory, useBasename} from 'history';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactRouter, {Route, IndexRoute, Router} from 'react-router';
@@ -12,8 +13,8 @@ const history = useBasename(createHistory)({baseName: '/qdb'});
 
 class App extends React.Component {
     render() {
-        return(
-            <div>    
+      return(
+            <div>
                 <Navbar />
                 <div className='container' id='qdb-content'>
                     <Quote
