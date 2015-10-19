@@ -12,5 +12,4 @@ ReactDOM.render(
   <Router history={history} >
     <Route path='/qdb' component={QDB} />
   </Router>
-  , document.getElementById('app')
-);
+  , document.getElementById('app'));
