@@ -1,36 +1,21 @@
 'use strict';
 
-import {createHistory, useBasename} from 'history';
+import { createHistory, useBasename } from 'history';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ReactRouter, {Route, IndexRoute, Router} from 'react-router';
+import ReactRouter, { Route, IndexRoute, Router } from 'react-router';
 
-import Navbar from './navbar';
-import Quote from './quote';
+import Navbar from './components/navbar';
+import Quote from './components/quote';
 import QDB from './components/qdb';
+import TagsPage from './components/tags-page';
 
-const history = useBasename(createHistory)({baseName: '/qdb'});
-
-class App extends React.Component {
-    render() {
-      return(
-            <div>
-                <Navbar />
-                <div className='container' id='qdb-content'>
-                    <Quote
-                        qdbid='1129'
-                        quoteText='Hello World with React!'
-                        smallText='Hello World subtext!'
-                        tags={['this tag', 'this other tag', 'and also this one']}
-                    />
-                </div>
-            </div>
-        );
-    }
-}
+const history = useBasename(createHistory)({ baseName: '/qdb' });
 
 ReactDOM.render(
   <Router history={history} >
-    <Route path='/qdb' component={QDB} />
+      <Route path='/qdb' component={QDB} />
+      <Route path='/qdb/quotes' component={QDB} />
+      <Route path='/qdb/tags' component={TagsPage} />
   </Router>
   , document.getElementById('app'));
