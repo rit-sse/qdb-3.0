@@ -1,3 +1,9 @@
+/*
+*View all tags on the QDB
+*Pass the QDB tag a list of tag strings
+*to display them.
+* */
+
 'use strict';
 
 import React from 'react';
@@ -9,9 +15,11 @@ export default class QDB extends React.Component {
   render() {
     return(
         <div>
-            <Navbar />
             <div className='container' id='qdb-content'>
-                <Tags tags={['a', 'b', 'dog', 'c', 'cat', 'cow']} />
+                <div className='page-header'>
+                  <h1>Tags</h1>
+                </div>
+                <Tags tags={this.props.tags} />
             </div>
         </div>);
   }

@@ -1,21 +1,23 @@
 'use strict';
 
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 export default class Navbar extends Component {
     render() {
+    const curr = this.props.page;
       return(
         <nav className='navbar navbar-default navbar-fixed-top navbar-inverse'>
             <div className='container'>
                 <div className='navbar-header'>
-                    <a className='navbar-brand qdb-nav-item' href='/qdb/quotes/'>
+                    <Link className='navbar-brand qdb-nav-item' to='/qdb/quotes'>
                         <img alt='small-logo' className='qdb-nav-item' id='qdb-logo' src='/qdb/images/small-logo.png' />
                         <p className='qdb-nav-item' id='qdb-title'>SSE QDB</p>
-                    </a>
+                    </Link>
                     <div className='collapse navbar-collapse qdb-nav-item' id='bs-example-navbar-collapse-1'>
                           <ul className='nav navbar-nav'>
-                              <li className='active'><a href='/qdb/quotes/'>Quotes</a></li>
-                              <li><a href='/qdb/tags/'>Tags</a></li>
+                              <li className=''><Link to='/qdb/quotes'>Quotes</Link></li>
+                              <li><Link to='/qdb/tags/'>Tags</Link></li>
                           </ul>
                      </div> {/* /navbar-collapse */}
                 </div> {/* /navbar-header */}
@@ -27,9 +29,9 @@ export default class Navbar extends Component {
                     </form>
                     <div className='collapse navbar-collapse qdb-nav-item' id='bs-example-navbar-collapse-1'>
                         <ul className='nav navbar-nav'>
-                            <li><a href='/qdb/add'>
+                            <li><Link to='/qdb/add'>
                                 <span className='glyphicon glyphicon-pencil' aria-hidden='true'></span>
-                            </a></li>
+                            </Link></li>
                         </ul>
                     </div> {/* /navbar-collapse */}
                 </div> {/* /navbar-right */}

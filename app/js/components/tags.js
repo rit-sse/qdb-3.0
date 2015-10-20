@@ -5,8 +5,12 @@ import Tag from './tag';
 
 export default class Tags extends Component {
     render() {
-      const tags = this.props.tags;
-      tags.sort();
+      let tags = this.props.tags;
+      if (typeof tags !== 'undefined'){
+        tags.sort();
+      }else{
+        tags = [];
+      }   
       return(
               <div>
               {tags.map(function makeTags(thisTag) {

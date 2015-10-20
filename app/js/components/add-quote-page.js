@@ -9,11 +9,9 @@ export default class QuoteFormPage extends React.Component {
   render() {
     return(
         <div>
-            <Navbar />
             <div className='container' id='qdb-content'>
                 <div className='page-header'>
                     <h1>Add a Quote</h1>
-                    <hr />
                 </div>
                 <QuoteForm />
             </div>
