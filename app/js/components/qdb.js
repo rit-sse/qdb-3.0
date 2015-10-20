@@ -11,6 +11,10 @@ export default class QDB extends React.Component {
         <div>
             <Navbar />
             <div className='container' id='qdb-content'>
+                <div class="page-header">
+                    <h1>Quotes</h1>
+                    <hr />
+                </div>
                 <Quote
                     qdbid='1129'
                     quoteText='Hello World with React!'
