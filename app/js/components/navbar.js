@@ -8,14 +8,14 @@ export default class Navbar extends Component {
         <nav className='navbar navbar-default navbar-fixed-top navbar-inverse'>
             <div className='container'>
                 <div className='navbar-header'>
-                    <a className='navbar-brand qdb-nav-item' href='#'>
+                    <a className='navbar-brand qdb-nav-item' href='/qdb/quotes/'>
                         <img alt='small-logo' className='qdb-nav-item' id='qdb-logo' src='/qdb/images/small-logo.png' />
                         <p className='qdb-nav-item' id='qdb-title'>SSE QDB</p>
                     </a>
                     <div className='collapse navbar-collapse qdb-nav-item' id='bs-example-navbar-collapse-1'>
                           <ul className='nav navbar-nav'>
-                              <li className='active'><a href='#'>Quotes</a></li>
-                              <li><a href='#'>Tags</a></li>
+                              <li className='active'><a href='/qdb/quotes/'>Quotes</a></li>
+                              <li><a href='/qdb/tags/'>Tags</a></li>
                           </ul>
                      </div> {/* /navbar-collapse */}
                 </div> {/* /navbar-header */}
