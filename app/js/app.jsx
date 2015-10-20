@@ -9,6 +9,7 @@ import Navbar from './components/navbar';
 import Quote from './components/quote';
 import QDB from './components/qdb';
 import TagsPage from './components/tags-page';
+import QuoteFormPage from './components/add-quote-page';
 
 const history = useBasename(createHistory)({ baseName: '/qdb' });
 
@@ -17,5 +18,6 @@ ReactDOM.render(
       <Route path='/qdb' component={QDB} />
       <Route path='/qdb/quotes' component={QDB} />
       <Route path='/qdb/tags' component={TagsPage} />
+      <Route path='/qdb/add' component={QuoteFormPage} />
   </Router>
   , document.getElementById('app'));

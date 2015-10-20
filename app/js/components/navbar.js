@@ -27,7 +27,7 @@ export default class Navbar extends Component {
                     </form>
                     <div className='collapse navbar-collapse qdb-nav-item' id='bs-example-navbar-collapse-1'>
                         <ul className='nav navbar-nav'>
-                            <li><a href='#'>
+                            <li><a href='/qdb/add'>
                                 <span className='glyphicon glyphicon-pencil' aria-hidden='true'></span>
                             </a></li>
                         </ul>
