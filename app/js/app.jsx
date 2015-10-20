@@ -3,10 +3,8 @@
 import { createHistory, useBasename } from 'history';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ReactRouter, { Route, IndexRoute, Router } from 'react-router';
+import { Route, Router } from 'react-router';
 
-import Navbar from './components/navbar';
-import Quote from './components/quote';
 import QDB from './components/qdb';
 import TagsPage from './components/tags-page';
 import QuoteFormPage from './components/add-quote-page';

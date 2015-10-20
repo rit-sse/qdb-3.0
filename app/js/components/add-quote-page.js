@@ -11,7 +11,7 @@ export default class QuoteFormPage extends React.Component {
         <div>
             <Navbar />
             <div className='container' id='qdb-content'>
-                <div class="page-header">
+                <div className='page-header'>
                     <h1>Add a Quote</h1>
                     <hr />
                 </div>
