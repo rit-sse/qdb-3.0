@@ -5,7 +5,6 @@ import { Link } from 'react-router';
 
 export default class Navbar extends Component {
     render() {
-    const curr = this.props.page;
       return(
         <nav className='navbar navbar-default navbar-fixed-top navbar-inverse'>
             <div className='container'>

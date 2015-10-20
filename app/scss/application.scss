@@ -1,3 +1,5 @@
+$mobileView: "(max-width: 768px)";
+
 .qdb-nav-item {
     float:left;
     display:block;
@@ -23,4 +25,10 @@
 
 .qdb-input {
     margin-bottom: 30px;
+}
+
+@media #{$mobileView}{
+    #qdb-content{
+        margin-top:200px;
+    }
 }

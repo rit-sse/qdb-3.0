@@ -2,7 +2,6 @@
 
 import React from 'react';
 
-import Navbar from './navbar';
 import QuoteForm from './new-quote-form';
 
 export default class QuoteFormPage extends React.Component {
