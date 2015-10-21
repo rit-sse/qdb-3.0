@@ -8,7 +8,7 @@
 
 import React from 'react';
 
-import Tags from './tags';
+import TagsList from './tags-list';
 
 export default class QDB extends React.Component {
   render() {
@@ -18,7 +18,7 @@ export default class QDB extends React.Component {
                 <div className='page-header'>
                   <h1>Tags</h1>
                 </div>
-                <Tags tags={this.props.tags} />
+                <TagsList tags={this.props.tags} />
             </div>
         </div>);
   }

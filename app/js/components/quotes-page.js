@@ -8,7 +8,7 @@
 
 import React from 'react';
 
-import Tags from './tags';
+import TagsList from './tags-list';
 import Quote from './quote';
 
 export default class QuotesPage extends React.Component {
@@ -27,7 +27,7 @@ export default class QuotesPage extends React.Component {
                       return <Quote quoteText={thisQuote.quoteText} smallText={thisQuote.smallText} tags={thisQuote.tags}  />;
                     })}
                 </div>
-                <Tags tags={this.props.tags} />
+                <TagsList tags={this.props.tags} />
             </div>);
     }
 }

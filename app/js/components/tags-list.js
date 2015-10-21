@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import Tag from './tag';
 
-export default class Tags extends Component {
+export default class TagsList extends Component {
     render() {
       let tags = this.props.tags;
       if (typeof tags !== 'undefined') {
