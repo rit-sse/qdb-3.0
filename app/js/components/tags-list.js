@@ -13,9 +13,7 @@ export default class TagsList extends Component {
       }
       return(
               <div>
-              {tags.map(function makeTags(thisTag) {
-                return <Tag key={'qdb-tag-' + thisTag}  tag={thisTag} />;
-              })}
+              tags.map((thisTag) => <Tag key={'qdb-tag-' + thisTag}  tag={thisTag} />);
               </div>
         );
     }
