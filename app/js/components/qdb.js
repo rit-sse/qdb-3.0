@@ -7,9 +7,9 @@ import Navbar from './navbar';
 export default class QDB extends React.Component {
   render() {
     return(
-        <div>
-            <Navbar />
-               {this.props.children}
-        </div>);
+      <div>
+        <Navbar />
+        {this.props.children}
+      </div>);
   }
 }
