@@ -20,9 +20,7 @@ export default class QuotesPage extends React.Component {
           <div className='page-header'>
             <h1>Quotes</h1>
           </div>
-          {quoteslist.map(function putQuotes(thisQuote) {
-            return <Quote quoteText={thisQuote.quoteText} smallText={thisQuote.smallText} tags={thisQuote.tags}  />;
-          })}
+          {quoteslist.map((thisQuote) => <Quote quoteText={thisQuote.quoteText} smallText={thisQuote.smallText} tags={thisQuote.tags}  /> )}
         </div>
         <TagsList tags={this.props.tags} />
       </div>);
