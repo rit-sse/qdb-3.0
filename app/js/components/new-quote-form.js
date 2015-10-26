@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 
-export default class QuoteForm extends Component {
+export default class CreateQuoteForm extends Component {
     render() {
       return(
           <form role='form'>

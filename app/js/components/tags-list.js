@@ -11,9 +11,10 @@ export default class TagsList extends Component {
       } else {
         tags = [];
       }
+      let tagElements = tags.map((thisTag) => <Tag key={'qdb-tag-' + thisTag}  tag={thisTag} /> );
       return(
               <div>
-              tags.map((thisTag) => <Tag key={'qdb-tag-' + thisTag}  tag={thisTag} />);
+                {tagElements}
               </div>
         );
     }

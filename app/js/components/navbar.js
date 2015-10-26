@@ -6,7 +6,7 @@ import { Link } from 'react-router';
 export default class Navbar extends Component {
     render() {
       return(
-        <nav className='navbar navbar-default navbar-fixed-top navbar-inverse'>
+        <div className='navbar navbar-default navbar-fixed-top navbar-inverse' toggleNavKey={0}>
             <div className='container'>
                 <div className='navbar-header'>
                     <Link className='navbar-brand qdb-nav-item' to='/qdb/quotes'>
@@ -35,7 +35,7 @@ export default class Navbar extends Component {
                     </div> {/* /navbar-collapse */}
                 </div> {/* /navbar-right */}
             </div> {/* /container */}
-        </nav>
+        </div>
         );
     }
 }
