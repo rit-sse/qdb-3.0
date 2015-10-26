@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import Tag from './tag';
 
-export default class TagsList extends Component {
+export default class TagList extends Component {
   render() {
     const tags = this.props.tags || [];
     tags.sort();
