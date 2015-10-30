@@ -10,7 +10,7 @@ import React from 'react';
 
 import TagsList from './tags-list';
 
-export default class QDB extends React.Component {
+export default class TagsPage extends React.Component {
   render() {
     return(
       <div>
