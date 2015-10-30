@@ -1,36 +1,24 @@
 'use strict';
 
-import {createHistory, useBasename} from 'history';
+import { createHistory, useBasename } from 'history';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ReactRouter, {Route, IndexRoute, Router} from 'react-router';
+import { Route, Router, IndexRedirect } from 'react-router';
 
-import Navbar from './navbar';
-import Quote from './quote';
 import QDB from './components/qdb';
+import TagsPage from './components/tags-page';
+import QuoteFormPage from './components/add-quote-page';
+import QuotesPage from './components/quotes-page';
 
-const history = useBasename(createHistory)({baseName: '/qdb'});
-
-class App extends React.Component {
-    render() {
-      return(
-            <div>
-                <Navbar />
-                <div className='container' id='qdb-content'>
-                    <Quote
-                        qdbid='1129'
-                        quoteText='Hello World with React!'
-                        smallText='Hello World subtext!'
-                        tags={['this tag', 'this other tag', 'and also this one']}
-                    />
-                </div>
-            </div>
-        );
-    }
-}
+const history = useBasename(createHistory)({ baseName: '/qdb' });
 
 ReactDOM.render(
   <Router history={history} >
-    <Route path='/qdb' component={QDB} />
+      <Route path='/qdb' component={QDB}>
+          <Route path='/qdb/tags' component={TagsPage} />
+          <Route path='/qdb/add' component={QuoteFormPage} />
+          <Route path='/qdb/quotes' component={QuotesPage} />
+          <IndexRedirect from='/qdb' to='/qdb/quotes' />
+      </Route>
   </Router>
   , document.getElementById('app'));
