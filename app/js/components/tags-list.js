@@ -7,7 +7,7 @@ export default class TagList extends Component {
   render() {
     const tags = this.props.tags || [];
     tags.sort();
-    const tagElements = tags.map(thisTag => <Tag key={'qdb-tag-' + thisTag}  tag={thisTag} /> );
+    const tagElements = tags.map(tag => <Tag key={'qdb-tag-' + tag.name}  tag={tag} /> );
     return(
       <div>
         {tagElements}
