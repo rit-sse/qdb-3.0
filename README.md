@@ -6,6 +6,8 @@ The React Version of the QDB
 #### Prerequisites:
 You must have [node](https://nodejs.org/en/download/) and [npm](https://www.npmjs.com/) installed.
 
+The QDB also uses the SSE [node-api](https://github.com/rit-sse/node-api), so you'll need to have a development version running. Follow its [instructions](https://github.com/rit-sse/node-api/blob/master/README.md) for getting setup and familiarize yourself with its [docs](http://docs.sse.apiary.io/) before you start working with the QDB.
+
 #### Installation:
 
 1. Clone the repo
