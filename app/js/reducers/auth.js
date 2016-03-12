@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   SIGN_IN_SUCCESS,
   SIGN_OUT_SUCCESS,

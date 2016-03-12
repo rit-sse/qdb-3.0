@@ -4,8 +4,6 @@
 *to display them.
 * */
 
-'use strict';
-
 import React from 'react';
 
 import TagsList from './tags-list';
@@ -14,7 +12,7 @@ import Quote from './quote';
 export default class QuotesPage extends React.Component {
   render() {
     const quotesList = this.props.quotes || [];
-    return(
+    return (
       <div>
         <div className='container' id='qdb-content'>
           <div className='page-header'>
@@ -23,6 +21,7 @@ export default class QuotesPage extends React.Component {
           {quotesList.map(thisQuote => <Quote quoteText={thisQuote.quoteText} smallText={thisQuote.smallText} tags={thisQuote.tags}  /> )}
         </div>
         <TagsList tags={this.props.tags} />
-      </div>);
+      </div>
+    );
   }
 }

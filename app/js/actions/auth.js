@@ -1,5 +1,3 @@
-'use strict';
-
 import api from '../api';
 
 export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS';

@@ -2,6 +2,10 @@ machine:
   node:
     version: 5.1.0
 
+dependencies:
+  post:
+    - npm install eslint@2.2.0 #actual garbage
+
 test:
   override:
     - npm run lint
