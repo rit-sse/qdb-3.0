@@ -1,5 +1,3 @@
-'use strict';
-
 import gulp from 'gulp';
 import source from 'vinyl-source-stream';
 import browserify from 'browserify';

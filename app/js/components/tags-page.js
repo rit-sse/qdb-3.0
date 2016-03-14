@@ -4,15 +4,13 @@
 *to display them.
 * */
 
-'use strict';
-
 import React from 'react';
 
 import TagsList from './tags-list';
 
 export default class TagsPage extends React.Component {
   render() {
-    return(
+    return (
       <div>
         <div className='container' id='qdb-content'>
           <div className='page-header'>
@@ -20,6 +18,7 @@ export default class TagsPage extends React.Component {
           </div>
           <TagsList tags={this.props.tags} />
         </div>
-      </div>);
+      </div>
+    );
   }
 }

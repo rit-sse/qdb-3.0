@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { Component } from 'react';
 import Tag from './tag';
 
@@ -8,10 +6,6 @@ export default class TagList extends Component {
     const tags = this.props.tags || [];
     tags.sort();
     const tagElements = tags.map(thisTag => <Tag key={'qdb-tag-' + thisTag}  tag={thisTag} /> );
-    return(
-      <div>
-        {tagElements}
-      </div>
-    );
+    return <div>{tagElements}</div>;
   }
 }
