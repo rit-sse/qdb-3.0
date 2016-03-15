@@ -1,5 +1,5 @@
 # qdb-3.0  [![Circle CI](https://circleci.com/gh/rit-sse/qdb-3.0/tree/master.svg?style=svg)](https://circleci.com/gh/rit-sse/qdb-3.0/tree/master)
-The React Version of the QDB
+The [React](http://facebook.github.io/react/) Version of the QDB
 
 ## Development Setup
 
