@@ -1,5 +1,3 @@
-'use strict';
-
 import { createHistory, useBasename } from 'history';
 import React from 'react';
 import ReactDOM from 'react-dom';
