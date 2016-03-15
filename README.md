@@ -13,6 +13,5 @@ The QDB also uses the SSE [node-api](https://github.com/rit-sse/node-api), so yo
 1. Clone the repo
 2. `cd` into that directory
 3. Run `npm install` to get the necessary dependencies
-4. Run `gulp` to build the site
-5. Run `npm start` to start the server
-6. You can view the site at `127.0.0.1:3000/qdb/`
+4. Run `gulp` to build the site & start the server
+5. You can view the site at `127.0.0.1:3000/qdb/`
