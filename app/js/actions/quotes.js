@@ -1,4 +1,4 @@
-import { Quotes } from '../api';
+import api from '../api';
 
 export const GET_QUOTES_SUCCESS = 'GET_QUOTES_SUCCESS';
 export const GET_QUOTES_FAILED = 'GET_QUOTES_FAILED';
@@ -16,7 +16,7 @@ function getQuotesSuccess(quotes) {
 
 function getQuotesFailure(error) {
   return {
-    type: GET_QUOTES_FAILURE,
+    type: GET_QUOTES_FAILED,
     error,
   };
 }
@@ -30,7 +30,7 @@ function approveSuccess(index) {
 
 function approveFailure(error) {
   return {
-    type: APPROVE_QUOTE_FAILURE,
+    type: APPROVE_QUOTE_FAILED,
     error,
   };
 }
@@ -43,14 +43,14 @@ function addSuccess() {
 
 function addFailure(error) {
   return {
-    type: ADD_QUOTE_FAILURE,
+    type: ADD_QUOTE_FAILED,
     error,
   };
 }
 
 export function getQuotes(page, tag, approved=true) {
   return dispatch => {
-    return Quotes.all({ page, tag, approved })
+    return api.Quotes.all({ page, tag, approved })
       .then(data => dispatch(getQuotesSuccess(data)))
       .catch(error => dispatch(getQuotesFailure(error)));
   };
@@ -58,7 +58,7 @@ export function getQuotes(page, tag, approved=true) {
 
 export function approveQuote(quote, index, approved) {
   return dispatch => {
-    return Quotes.update(quote.id, { approved })
+    return api.Quotes.update(quote.id, { approved })
       .then(() => dispatch(approveSuccess(index)))
       .catch(error => dispatch(approveFailure(error)));
   };
@@ -66,7 +66,7 @@ export function approveQuote(quote, index, approved) {
 
 export function addQuote(quote) {
   return dispatch => {
-    return Quotes.create(quote)
+    return api.Quotes.create(quote)
       .then(() => dispatch(addSuccess()))
       .catch(error => dispatch(addFailure(error)));
   };
