@@ -1,7 +1,35 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import LogIn from './log-in';
 
 export default class Navbar extends Component {
+  constructor() {
+    super();
+
+    this.renderLogIn = this.renderLogIn.bind(this);
+  }
+  renderLogIn() {
+    if (!this.props.auth.signedIn) {
+      return (
+        <li>
+          <LogIn key='login' dispatch={this.props.dispatch} />
+        </li>
+      );
+    }
+    return (
+      <li>
+        <button
+          id='sign-out'
+          key='logout'
+          className='btn navbar-btn'
+          onClick={() => this.props.dispatch(signOut())}
+          >
+          Sign Out
+        </button>
+      </li>
+    );
+  }
+
   render() {
     return (
       <nav className='navbar navbar-default navbar-fixed-top navbar-inverse'>
@@ -30,9 +58,10 @@ export default class Navbar extends Component {
             <ul className='nav navbar-nav navbar-right'>
               <li>
                 <Link to='/qdb/add'>
-                  <span className='glyphicon glyphicon-pencil' aria-hidden='true' />
+                  <span className='fa fa-pencil' aria-hidden='true' />
                 </Link>
               </li>
+              {this.renderLogIn()}
             </ul>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, IndexRedirect } from 'react-router';
 
-import QDB from './components/qdb';
+import QDB from './containers/qdb';
 import Tags from './containers/tags';
 import QuoteFormPage from './components/add-quote-page';
 import Quotes from './containers/quotes';
