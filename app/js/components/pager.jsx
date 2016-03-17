@@ -10,7 +10,7 @@ export default class Pager extends React.Component {
   }
   previous() {
     let className = 'previous';
-    if (parseInt(this.props.page, 10) === 1) {
+    if (parseInt(this.props.query.pagei || 1, 10) === 1) {
       className += ' disabled';
     }
 
@@ -19,7 +19,8 @@ export default class Pager extends React.Component {
 
   next() {
     let className = 'next';
-    if (this.props.quotes.list.length === this.props.quotes.pageSize) {
+    if (this.props.quotes.list.length === this.props.quotes.perPage ||
+        this.props.quotes.total < this.props.quotes.perPage) {
       className += ' disabled';
     }
     return className;
@@ -27,16 +28,22 @@ export default class Pager extends React.Component {
 
   render() {
     const pathname = this.props.pathname;
-    const page = parseInt(this.props.page, 10);
+    const page = parseInt(this.props.query.page || 1, 10);
+    const nextQuery = Object.assign({}, this.props.query, {
+      page: page + 1,
+    });
+    const previousQuery = Object.assign({}, this.props.query, {
+      page: page - 1,
+    });
     return (
       <ul className='pager'>
         <li className={this.previous()}>
-          <Link to={{ pathname, query: { page: page - 1 } }} >
+          <Link to={{ pathname, query: previousQuery }} >
             <span aria-hidden='true'>&larr;</span> Older
           </Link>
         </li>
         <li className={this.next()}>
-          <Link to={{ pathname, query: { page: page + 1 } }} >
+          <Link to={{ pathname, query: nextQuery }} >
             Newer <span aria-hidden='true'>&rarr;</span>
           </Link>
         </li>

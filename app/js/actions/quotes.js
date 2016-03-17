@@ -48,9 +48,9 @@ function addFailure(error) {
   };
 }
 
-export function getQuotes(page, tag, approved=true) {
+export function getQuotes(page, tag, search, approved=true) {
   return dispatch => {
-    return api.Quotes.all({ page, tag, approved })
+    return api.Quotes.all({ page, tag, approved, search })
       .then(data => dispatch(getQuotesSuccess(data)))
       .catch(error => dispatch(getQuotesFailure(error)));
   };

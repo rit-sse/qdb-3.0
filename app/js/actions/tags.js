@@ -1,26 +1,26 @@
 import api from '../api';
 
-export const LOAD_TAGS_SUCCESS = 'LOAD_TAGS_SUCCESS';
-export const LOAD_TAGS_FAILED = 'LOAD_TAGS_FAILED';
+export const GET_TAGS_SUCCESS = 'GET_TAGS_SUCCESS';
+export const GET_TAGS_FAILED = 'GET_TAGS_FAILED';
 
-function loadTagsSuccess(tags) {
+function getTagsSuccess(tags) {
   return {
-    type: LOAD_TAGS_SUCCESS,
+    type: GET_TAGS_SUCCESS,
     tags,
   };
 }
 
-function loadTagsFailed(error) {
+function getTagsFailed(error) {
   return {
-    type: LOAD_TAGS_FAILED,
+    type: GET_TAGS_FAILED,
     error,
   };
 }
 
-export function loadTags() {
+export function getTags() {
   return dispatch => {
     return api.Tags.all({}, true)
-      .then(data => dispatch(loadTagsSuccess(data)))
-      .catch(error => dispatch(loadTagsFailed(error)));
+      .then(data => dispatch(getTagsSuccess(data)))
+      .catch(error => dispatch(getTagsFailed(error)));
   };
 }
