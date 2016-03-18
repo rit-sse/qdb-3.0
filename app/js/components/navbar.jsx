@@ -8,7 +8,9 @@ export default class Navbar extends Component {
     super();
 
     this.renderLogIn = this.renderLogIn.bind(this);
+    this.renderApproval = this.renderApproval.bind(this);
   }
+
   renderLogIn() {
     if (!this.props.auth.signedIn) {
       return (
@@ -31,6 +33,17 @@ export default class Navbar extends Component {
     );
   }
 
+  renderApproval() {
+    if (this.props.auth.officer) {
+      return (
+        <li>
+          <Link to={{ pathname: '/qdb/quotes', query: { approved: 'null' } }}>Approve</Link>
+        </li>
+      );
+    }
+    return null;
+  }
+
   render() {
     return (
       <nav className='navbar navbar-default navbar-fixed-top navbar-inverse'>
@@ -50,6 +63,7 @@ export default class Navbar extends Component {
             <ul className='nav navbar-nav'>
               <li className=''><Link to='/qdb/quotes'>Quotes</Link></li>
               <li><Link to='/qdb/tags/'>Tags</Link></li>
+              {this.renderApproval()}
             </ul>
             <ul className='nav navbar-nav navbar-right'>
               {this.renderLogIn()}
