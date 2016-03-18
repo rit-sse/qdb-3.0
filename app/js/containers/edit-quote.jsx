@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import QuoteForm from '../components/quote-form';
 import { getTags } from '../actions/tags';
-import { addQuote } from '../actions/quotes';
+import { updateQuote } from '../actions/quotes';
 
 function mapStateToProps(state) {
   return {
@@ -20,9 +20,9 @@ class AddQuote extends Component {
     return (
       <div>
         <div className='page-header'>
-          <h1>Add a Quote</h1>
+          <h1>Edit a Quote</h1>
         </div>
-        <QuoteForm {...this.props} submit={addQuote}/>
+        <QuoteForm {...this.props} submit={updateQuote} quoteId={this.props.params.id}/>
       </div>
     );
   }

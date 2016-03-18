@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { MultiSelect } from 'react-selectize';
-import { addQuote } from '../actions/quotes';
+
+import { getQuote } from '../actions/quotes';
 
 class QuoteForm extends Component {
   constructor() {
@@ -11,6 +12,12 @@ class QuoteForm extends Component {
     this.createFromSearch = this.createFromSearch.bind(this);
     this.renderNoResultsFound = this.renderNoResultsFound.bind(this);
     this.submit = this.submit.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.quoteId) {
+      this.props.dispatch(getQuote(this.props.quoteId));
+    }
   }
 
   valuesFromPaste(options, values, pastedText) {
@@ -42,7 +49,7 @@ class QuoteForm extends Component {
 
   submit(quote) {
     quote.tags = (quote.tags || []).map(tag => tag.value);
-    this.props.dispatch(addQuote(quote));
+    this.props.dispatch(this.props.submit(quote, this.props.resetForm));
   }
 
   render() {
@@ -83,5 +90,6 @@ class QuoteForm extends Component {
 
 export default reduxForm({
   form: 'quote',
-  fields: ['body', 'description', 'tags'],
-})(QuoteForm);
+  fields: ['id', 'body', 'description', 'tags'],
+},
+state => ({ initialValues: state.quotes.quote }))(QuoteForm);

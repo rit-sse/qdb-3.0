@@ -6,7 +6,7 @@ export default class Quote extends Component {
   render() {
     return  (
       <div className='well well-lg'>
-        <a href='#'>{this.props.qdbid}</a>
+        <a href='#'>{this.props.quote.id}</a>
         <blockquote className='qdb-quote-text'>
           {this.props.quote.body.split(/\r\n|\r|\n/g).map((line, i) => {
             return (

@@ -10,6 +10,7 @@ import {
   GET_QUOTES_FAILED,
   APPROVE_QUOTE_FAILED,
   ADD_QUOTE_SUCCESS,
+  UPDATE_QUOTE_SUCCESS,
   ADD_QUOTE_FAILED,
 } from '../actions/quotes';
 
@@ -30,7 +31,12 @@ export default function status(state = { err: null, notice: null }, action) {
   case ADD_QUOTE_SUCCESS:
     return Object.assign({}, state, {
       err: null,
-      notice: { message: 'Quote Createad! The quote will be visible pending moderation' },
+      notice: { message: 'Quote Created! The quote will be visible pending moderation' },
+    });
+  case UPDATE_QUOTE_SUCCESS:
+    return Object.assign({}, state, {
+      err: null,
+      notice: { message: 'Quote updated!' },
     });
   case SIGN_OUT_FAILED:
   case SIGN_IN_FAILED:
