@@ -4,7 +4,7 @@
  *to display them.
  * */
 
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Quote from '../components/quote';
@@ -17,7 +17,7 @@ function mapStateToProps(state) {
   };
 }
 
-class Quotes extends React.Component {
+class Quotes extends Component {
 
   constructor() {
     super();
@@ -53,7 +53,7 @@ class Quotes extends React.Component {
 
   render() {
     return (
-      <div className='container' id='qdb-content'>
+      <div>
         <div className='page-header'>
           <h1>{this.header()}</h1>
         </div>

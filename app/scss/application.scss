@@ -10,10 +10,6 @@ $mobileView: "(max-width: 768px)";
   margin-right:10px
 }
 
-#qdb-content {
-  margin-top: 70px;
-}
-
 .qdb-quote-text {
   margin-top: 10px;
   margin-bottom:10px;
@@ -26,6 +22,14 @@ $mobileView: "(max-width: 768px)";
 
 .qdb-input {
   margin-bottom: 30px;
+}
+
+.width-100 {
+  width: 100% !important;
+}
+
+body {
+  padding-top: 70px;
 }
 
 @media #{$mobileView}{

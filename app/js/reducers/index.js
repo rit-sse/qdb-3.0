@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { reducer as form } from 'redux-form';
 import auth from './auth';
 import status from './status';
 import tags from './tags';
@@ -9,4 +10,5 @@ export default combineReducers({
   status,
   tags,
   quotes,
+  form,
 });

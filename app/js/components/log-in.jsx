@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { signIn } from '../actions/auth';
 
-export default class LogIn extends React.Component {
+export default class LogIn extends Component {
   constructor() {
     super();
   }
