@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import LogIn from './log-in';
+import { signOut } from '../actions/auth';
 
 export default class Navbar extends Component {
   constructor() {
@@ -18,14 +19,14 @@ export default class Navbar extends Component {
     }
     return (
       <li>
-        <button
+        <a
           id='sign-out'
           key='logout'
-          className='btn navbar-btn'
+          href='#'
           onClick={() => this.props.dispatch(signOut())}
           >
           Sign Out
-        </button>
+        </a>
       </li>
     );
   }
@@ -50,6 +51,9 @@ export default class Navbar extends Component {
               <li className=''><Link to='/qdb/quotes'>Quotes</Link></li>
               <li><Link to='/qdb/tags/'>Tags</Link></li>
             </ul>
+            <ul className='nav navbar-nav navbar-right'>
+              {this.renderLogIn()}
+            </ul>
             <form className='navbar-form navbar-right' role='search'>
               <div className='form-group'>
                 <input type='text' className='form-control' placeholder='Search' />
@@ -61,7 +65,6 @@ export default class Navbar extends Component {
                   <span className='fa fa-pencil' aria-hidden='true' />
                 </Link>
               </li>
-              {this.renderLogIn()}
             </ul>
           </div>
         </div>

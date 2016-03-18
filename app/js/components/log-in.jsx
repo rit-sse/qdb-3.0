@@ -12,16 +12,16 @@ export default class LogIn extends React.Component {
       client_id: process.env.GOOGLE_CLIENT_ID, // eslint-disable-line camelcase
       cookie_policy: 'single_host_origin', // eslint-disable-line camelcase
     });
-    auth2.attachClickHandler(this.refs.button.getDOMNode(), {}, googleUser => {
+    auth2.attachClickHandler(this.refs.button, {}, googleUser => {
       this.props.dispatch(signIn(googleUser));
     });
   }
 
   render() {
     return (
-      <button id='login' className='btn btn-primary navbar-btn ' ref='button'>
+      <a href='#' id='login' ref='button'>
         <i className='fa fa-google'></i> Sign In
-      </button>
+      </a>
     );
   }
 }
