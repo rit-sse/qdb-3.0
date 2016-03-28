@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Navbar from '../components/navbar';
 import { clearStatus }  from '../actions/status';
+import { checkLogin }  from '../actions/auth';
 
 function mapStateToProps(state) {
   return {
@@ -23,6 +24,10 @@ class QDB extends Component {
 
   clearStatus() {
     this.props.dispatch(clearStatus());
+  }
+
+  componentDidMount() {
+    this.props.dispatch(checkLogin());
   }
 
   renderError() {

@@ -54,6 +54,21 @@ export function signIn(googleUser) {
   };
 }
 
+export function checkLogin() {
+  return dispatch => {
+    return api.Auth.checkToken().then(user => {
+      return api.Officers.all({active: new Date() }, true).then(data => {
+        const oIndex = data.map(o => o.userDce).indexOf(user.dce);
+        if(oIndex !== -1) {
+          return Promise.resolve(data[oIndex]);
+        }
+        return Promise.reject({ message: 'Need to be an officer to log in'});
+      });
+    })
+    .then(p => dispatch(signInSuccess(p)))
+    .catch(p => dispatch(signOutSuccess()));
+  }
+}
 
 export function signOut() {
   return dispatch => {
