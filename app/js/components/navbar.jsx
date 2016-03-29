@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import LogIn from './log-in';
+import { signOut } from '../actions/auth';
 
 export default class Navbar extends Component {
   constructor() {
     super();
 
     this.renderLogIn = this.renderLogIn.bind(this);
+    this.renderApproval = this.renderApproval.bind(this);
   }
+
   renderLogIn() {
     if (!this.props.auth.signedIn) {
       return (
@@ -18,16 +21,27 @@ export default class Navbar extends Component {
     }
     return (
       <li>
-        <button
+        <a
           id='sign-out'
           key='logout'
-          className='btn navbar-btn'
+          href='#'
           onClick={() => this.props.dispatch(signOut())}
           >
           Sign Out
-        </button>
+        </a>
       </li>
     );
+  }
+
+  renderApproval() {
+    if (this.props.auth.officer) {
+      return (
+        <li>
+          <Link to={{ pathname: '/qdb/quotes', query: { approved: 'null' } }}>Approve</Link>
+        </li>
+      );
+    }
+    return null;
   }
 
   render() {
@@ -49,6 +63,10 @@ export default class Navbar extends Component {
             <ul className='nav navbar-nav'>
               <li className=''><Link to='/qdb/quotes'>Quotes</Link></li>
               <li><Link to='/qdb/tags/'>Tags</Link></li>
+              {this.renderApproval()}
+            </ul>
+            <ul className='nav navbar-nav navbar-right'>
+              {this.renderLogIn()}
             </ul>
             <form className='navbar-form navbar-right' role='search'>
               <div className='form-group'>
@@ -61,7 +79,6 @@ export default class Navbar extends Component {
                   <span className='fa fa-pencil' aria-hidden='true' />
                 </Link>
               </li>
-              {this.renderLogIn()}
             </ul>
           </div>
         </div>

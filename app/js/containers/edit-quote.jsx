@@ -1,14 +1,9 @@
-/*
- *View all tags on the QDB
- *Pass the QDB tag a list of tag strings
- *to display them.
- * */
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Tag from '../components/tag';
+import QuoteForm from '../components/quote-form';
 import { getTags } from '../actions/tags';
+import { updateQuote } from '../actions/quotes';
 
 function mapStateToProps(state) {
   return {
@@ -16,7 +11,7 @@ function mapStateToProps(state) {
   };
 }
 
-class Tags extends Component {
+class AddQuote extends Component {
   componentDidMount() {
     this.props.dispatch(getTags());
   }
@@ -25,12 +20,12 @@ class Tags extends Component {
     return (
       <div>
         <div className='page-header'>
-          <h1>Tags</h1>
+          <h1>Edit a Quote</h1>
         </div>
-        {this.props.tags.map(tag => <Tag tag={tag} />)}
+        <QuoteForm {...this.props} submit={updateQuote} quoteId={this.props.params.id}/>
       </div>
     );
   }
 }
 
-export default connect(mapStateToProps)(Tags);
+export default connect(mapStateToProps)(AddQuote);
