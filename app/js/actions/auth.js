@@ -24,8 +24,8 @@ function signInFailed(error) {
 function signInByToken(user) {
   return {
     type: SIGN_IN_BY_TOKEN,
-    user
-  }
+    user,
+  };
 }
 
 function signOutSuccess() {
@@ -43,8 +43,8 @@ function signOutFailed(error) {
 
 function signOutByToken() {
   return {
-    type: SIGN_OUT_BY_TOKEN
-  }
+    type: SIGN_OUT_BY_TOKEN,
+  };
 }
 
 export function signIn(googleUser) {

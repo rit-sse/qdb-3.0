@@ -2,7 +2,7 @@ import {
   SIGN_IN_SUCCESS,
   SIGN_OUT_SUCCESS,
   SIGN_IN_BY_TOKEN,
-  SIGN_OUT_BY_TOKEN
+  SIGN_OUT_BY_TOKEN,
 } from '../actions/auth';
 
 export default function auth(state = { signedIn: false }, action) {
