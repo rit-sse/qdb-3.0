@@ -2,8 +2,10 @@ import api from '../api';
 
 export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS';
 export const SIGN_IN_FAILED = 'SIGN_IN_FAILED';
+export const SIGN_IN_BY_TOKEN = 'SIGN_IN_BY_TOKEN';
 export const SIGN_OUT_SUCCESS = 'SIGN_OUT_SUCCESS';
 export const SIGN_OUT_FAILED = 'SIGN_OUT_FAILED';
+export const SIGN_OUT_BY_TOKEN = 'SIGN_OUT_BY_TOKEN';
 
 function signInSuccess(user) {
   return {
@@ -19,6 +21,13 @@ function signInFailed(error) {
   };
 }
 
+function signInByToken(user) {
+  return {
+    type: SIGN_IN_BY_TOKEN,
+    user
+  }
+}
+
 function signOutSuccess() {
   return {
     type: SIGN_OUT_SUCCESS,
@@ -30,6 +39,12 @@ function signOutFailed(error) {
     type: SIGN_OUT_FAILED,
     error,
   };
+}
+
+function signOutByToken() {
+  return {
+    type: SIGN_OUT_BY_TOKEN
+  }
 }
 
 export function signIn(googleUser) {
@@ -65,8 +80,8 @@ export function checkLogin() {
         return Promise.reject({ message: 'Need to be an officer to log in' });
       });
     })
-    .then(p => dispatch(signInSuccess(p)))
-    .catch(() => dispatch(signOutSuccess()));
+    .then(p => dispatch(signInByToken(p)))
+    .catch(() => dispatch(signOutByToken()));
   };
 }
 
