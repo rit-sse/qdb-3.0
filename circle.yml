@@ -1,8 +1,17 @@
 machine:
-  node:
-    version: 5.1.0
+  services:
+    - docker
 
 test:
+  pre:
+    - docker build -t ritsse/qdb-3.0:$CIRCLE_BRANCH .
   override:
-    - npm run lint
-    - npm run build
+    - docker run -it ritsse/qdb-3.0:$CIRCLE_BRANCH npm run lint 
+
+deployment:
+  development:
+    branch: devlop
+    commands:
+      - docker login -u $DOCKER_USER -p $DOCKER_PASS -e tech@sse.rit.edu
+      - docker push ritsse/qdb-3.0:$CIRCLE_BRANCH
+
