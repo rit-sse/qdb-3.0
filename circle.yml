@@ -4,6 +4,7 @@ machine:
 
 test:
   pre:
+    - docker login -u $DOCKER_USER -p $DOCKER_PASS -e tech@sse.rit.edu
     - docker build -t ritsse/qdb-3.0:$CIRCLE_BRANCH .
   override:
     - docker run -it ritsse/qdb-3.0:$CIRCLE_BRANCH npm run lint 
@@ -12,6 +13,10 @@ deployment:
   development:
     branch: devlop
     commands:
-      - docker login -u $DOCKER_USER -p $DOCKER_PASS -e tech@sse.rit.edu
       - docker push ritsse/qdb-3.0:$CIRCLE_BRANCH
-
+  master:
+    branch: master
+    owner: rit-sse
+    commands:
+      - docker tag ritsse/qdb-3.0:$CIRCLE_BRANCH ritsse/qdb-3.0
+      - docker push ritsse/qdb-3.0 
